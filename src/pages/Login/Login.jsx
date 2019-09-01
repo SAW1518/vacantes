@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import "./Login.css"
 import {connect} from "react-redux";
 import {LoginAction} from '../../business/actions/Login/LoginAction'
+import {Redirect} from "react-router-dom";
 
 type LoginProps = {}
 type LoginState = {
@@ -9,28 +10,38 @@ type LoginState = {
     dataLogin: any,
     errorLogin: any,
     user: string,
-    pass: string
+    pass: string,
+    IsLogin:boolean,
 }
 
 class Login extends Component<LoginProps, LoginState> {
 
     state = {
         user: '',
-        pass: ''
+        pass: '',
+        IsLogin:false,
     };
 
     componentWillReceiveProps(nextProps: Props) {
         const {dataLogin, errorLogin} = nextProps;
         if (dataLogin.body && dataLogin.isOk !== false) {
             console.log('Data Login ', dataLogin);
+            this.setState({
+                IsLogin:true,
+            })
         }
         if (errorLogin.error && !errorLogin.isOk) {
-            console.log('Error Login ', errorLogin);
+            console.log('Error Login 111 ', errorLogin);
         }
 
     }
 
     componentDidMount() {
+        this.setState({
+            user: '',
+            pass: '',
+            IsLogin:false,
+        });
 
     }
 
@@ -58,6 +69,9 @@ class Login extends Component<LoginProps, LoginState> {
     render() {
         return (
             <div className="container">
+                {
+                    (this.state.IsLogin) ? <Redirect to={'/isLoginHome'}/> : ''
+                }
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div className="card card-signin my-5">
