@@ -1,16 +1,82 @@
-// @flow
-import * as React from 'react';
 
-type Props = {};
-type State = {};
+import React, {Component} from 'react';
 
-class Reguistro extends React.Component<Props, State> {
+import {connect} from "react-redux";
+import {ReguistroAction} from '../../business/actions/Reguistro/ReguistroAction'
+
+
+type ReguistroProps = {
+    ReguistroAction: (any)=>void,
+    dataReguistro: any,
+    errorReguistro: any,
+};
+type ReguistroState = {
+    email:string,
+    password:string,
+    name:string,
+    active: number,
+    nombreEmpresa:string,
+    rfc:string,
+    razonSocial:string,
+    calle:string,
+    numeroCalle:string,
+    colonia:string,
+    codigoPostal:string,
+    ciudad:string,
+    municipio:string,
+    estado:string,
+    pais:string,
+    paginaWeb:string,
+    tamanoEmpresa:string,
+    nombreContacto:string,
+    apellidoPaternoContacto:string,
+    apellidoMaternoContacto:string,
+    cargoContacto:string,
+    celularContacto:string,
+    telefonoContacto:string,
+    extencionTelefonoContacto:string,
+    emailContacto:string,
+};
+
+class Reguistro extends Component<ReguistroProps, ReguistroState> {
+
+    state = {
+        email:'',
+        password:'',
+        name:'',
+        active: 0,
+        nombreEmpresa:'',
+        rfc:'',
+        razonSocial:'',
+        calle:'',
+        numeroCalle:'',
+        colonia:'',
+        codigoPostal:'',
+        ciudad:'',
+        municipio:'',
+        estado:'',
+        pais:'',
+        paginaWeb:'',
+        tamanoEmpresa:'',
+        nombreContacto:'',
+        apellidoPaternoContacto:'',
+        apellidoMaternoContacto:'',
+        cargoContacto:'',
+        celularContacto:'',
+        telefonoContacto:'',
+        extencionTelefonoContacto:'',
+        emailContacto:'',
+    };
+
+    isRegister=()=>{
+        this.props.ReguistroAction()
+    }
     render() {
         return (
             <div className="container">
 
                 <div className="row">
-                    <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div className="col-sm-9 col-md-7 col-lg-10 mx-auto">
                         <div className="card card-signin my-5">
                             <div className="card-body">
                                 <h5 className="card-title text-center">Registra tu empresa</h5>
@@ -147,7 +213,9 @@ class Reguistro extends React.Component<Props, State> {
                                     />
 
 
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" >Sign in
+                                    <button
+                                        onClick={this.isRegister}
+                                        className="btn btn-lg btn-primary btn-block text-uppercase" >Sign in
 
                                     </button>
 
@@ -160,4 +228,11 @@ class Reguistro extends React.Component<Props, State> {
         );
     };
 };
-export default Reguistro;
+
+const mapStateToProps = (state) => {
+    return {
+        dataReguistro: state.Reguistro.dataReguistro,
+        errorReguistro: state.Reguistro.errorReguistro
+    }
+};
+export default connect(mapStateToProps, {ReguistroAction})(Reguistro) ;
