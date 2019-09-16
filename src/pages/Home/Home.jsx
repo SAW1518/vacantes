@@ -80,7 +80,7 @@ class Home extends Component<HomeProps, HomeState> {
                                             </li>
                                         </ul>
                                     </div>
-                                    <Link to="/Login" className="d-none d-sm-block btn_1 home_page_btn">Iniciar secion</Link>
+
                                 </nav>
                             </div>
                         </div>
@@ -98,9 +98,11 @@ class Home extends Component<HomeProps, HomeState> {
                             <div className="col-lg-6">
                                 <div className="banner_text">
                                     <div className="banner_text_iner">
-                                        <h1>Conecta con los profecionistas para tu empereasa</h1>
+                                        <h1>Conecta con los profecionistas para tu empresa</h1>
                                         <p>La mejor plataforma para encontrar emplados resien egresados </p>
+                                        <Link to="/Login" className="  btn_1 ">Iniciar secion</Link>
                                         <Link to={"/Reguistro"} className="btn_2">Reguistrarte ya</Link>
+
                                     </div>
                                 </div>
                             </div>
