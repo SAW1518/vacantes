@@ -32,6 +32,9 @@ class Login extends Component<LoginProps, LoginState> {
         }
         if (errorLogin.error && !errorLogin.isOk) {
             console.log('Error Login 111 ', errorLogin);
+            this.setState({
+                IsLogin:false,
+            })
         }
 
     }

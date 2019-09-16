@@ -7,43 +7,43 @@ import {
 
 } from '../../types';
 
-export const ReguistroAction = ( ) => {
+export const ReguistroAction = ( data ) => {
     return (dispatch) => {
-        console.log('DATA LOGIN');
+        console.log('ReguistroAction',data);
         axios.post(ROGISTRO_URL, {
-            "email": "lsdsdsaldfd@lddf.com",
-            "password": "1fg23",
-            "name": "ljgfs",
+            "email": data.email,
+            "password": data.password,
+            "name": data.name,
             "active": 0,
             "empresa": {
-                "nombreEmpresa": "asfgda",
-                "rfc": "1231aa",
-                "razonSocial": "dsasd",
-                "calle": "ads",
-                "numeroCalle": "1",
-                "colonia": "asda",
-                "codigoPostal": 123124,
-                "ciudad": "sad",
-                "municipio": "asd",
-                "estado": "asd",
-                "pais": "ads",
-                "paginaWeb": "adsdad",
-                "tamanoEmpresa": "asda",
+                "nombreEmpresa":data.nombreEmpresa,
+                "rfc": data.rfc,
+                "razonSocial": data.razonSocial,
+                "calle": data.cache,
+                "numeroCalle": data.numeroCalle,
+                "colonia": data.colonia,
+                "codigoPostal": data.codigoPostal,
+                "ciudad": data.ciudad,
+                "municipio": data.municipio,
+                "estado": data.estado,
+                "pais": data.pais,
+                "paginaWeb": data.paginaWeb,
+                "tamanoEmpresa": data.tamanoEmpresa,
                 "contacto": {
-                    "nombreContacto": "dsa",
-                    "apellidoPaternoContacto": "asdad",
-                    "apellidoMaternoContacto": "sadasd",
-                    "cargoContacto": "sad",
-                    "celularContacto": "223123",
-                    "telefonoContacto": "1323",
-                    "extencionTelefonoContacto": "123",
-                    "emailContacto": "adeasd"
+                    "nombreContacto": data.nombreContacto,
+                    "apellidoPaternoContacto": data.apellidoPaternoContacto,
+                    "apellidoMaternoContacto": data.apellidoMaternoContacto,
+                    "cargoContacto": data.cargoContacto,
+                    "celularContacto": data.celularContacto,
+                    "telefonoContacto": data.telefonoContacto,
+                    "extencionTelefonoContacto": data.extencionTelefonoContacto,
+                    "emailContacto": data.emailContacto
                 }
             }
         })
             .then((response) => {
                 if (response.status === 200) {
-                    console.log('REGUITRO SUCCESS ', response.data);
+                    console.log('REGUITRO SUCCESS ', response);
                     const dataLogin = {
                         isOk: true,
                         body: response.data,
@@ -52,7 +52,7 @@ export const ReguistroAction = ( ) => {
                         }
                     };
 
-                    //dispatch({type: ROGISTRO_SUCCESS, payload: dataLogin})
+                    dispatch({type: ROGISTRO_SUCCESS, payload: dataLogin})
                 }
             }, (error) => {
                 console.log('REGUITRO ERROR', error);
@@ -79,7 +79,7 @@ export const ReguistroAction = ( ) => {
                         return false
                     }
                 };
-                //dispatch({type: ROGISTRO_ERROR, payload: errors});
+                dispatch({type: ROGISTRO_ERROR, payload: errors});
             });
     }
 };

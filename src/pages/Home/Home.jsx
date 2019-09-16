@@ -98,7 +98,7 @@ class Home extends Component<HomeProps, HomeState> {
                             <div className="col-lg-6">
                                 <div className="banner_text">
                                     <div className="banner_text_iner">
-                                        <h1>Conecta con las personas para tu empereasa</h1>
+                                        <h1>Conecta con los profecionistas para tu empereasa</h1>
                                         <p>La mejor plataforma para encontrar emplados resien egresados </p>
                                         <Link to={"/Reguistro"} className="btn_2">Reguistrarte ya</Link>
                                     </div>
@@ -115,7 +115,7 @@ class Home extends Component<HomeProps, HomeState> {
                             <div className="col-md-6 col-lg-5">
                                 <div className="about_us_text">
                                     <img src={Icon_1} alt=""/>
-                                        <h2>Conecta con las personas</h2>
+                                        <h2>Conecta con los profecionistas</h2>
                                         <p>Promociona a tus estudiantes para que encuentren su primer empleo</p>
                                         <a href="#" className="btn_2">Conoce mas</a>
                                 </div>
@@ -142,7 +142,7 @@ class Home extends Component<HomeProps, HomeState> {
                                 <div className="about_us_text">
 
                                         <h2>Mantente siempre en comunicacion </h2>
-                                        <p>Encuentra siempre ala persona correcta para el trabajo</p>
+                                        <p>Encuentra siempre los profecionistas correcta para el trabajo</p>
                                         <a href="#" className="btn_2">CONOCE MAS</a>
                                 </div>
                             </div>

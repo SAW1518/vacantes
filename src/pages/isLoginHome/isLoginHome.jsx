@@ -15,8 +15,9 @@ type State = {
  class IsLoginHome extends React.Component<Props, State> {
     render() {
         return (
-            <div>
-                sadasdsd
+            <div className="jumbotron text-center">
+                <h1>Pagina en Construsion</h1>
+                <h5>Es parte no se pudo continuar por falta de espacio y de presupuesto</h5>
             </div>
         );
     };
