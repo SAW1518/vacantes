@@ -99,7 +99,7 @@ class IsLoginHome extends React.Component<Props, State> {
     componentWillReceiveProps(nextProps:Props) {
         const {dataReguistroVacante ,errorReguistroVacante,dataListV,errorListV} = nextProps;
 
-        if ( dataReguistroVacante.isOk !== false) {
+        if ( dataReguistroVacante.isOk === true ) {
             console.log('Reguister Data  ', dataReguistroVacante);
             this.setState({
                 Cargando :false,
@@ -181,7 +181,7 @@ class IsLoginHome extends React.Component<Props, State> {
         return(
             <div>
                 {this.state.role ===1 || this.state.role ===2 ? this.renderFor():null }
-                {this.state.role ===3 || this.state.role ===2 ?this.state.List.map((item)=>{
+                {this.state.role ===1 || this.state.role ===3 ?this.state.List.map((item)=>{
                    return(
                        <CardComonents item={item}/>
                    )
