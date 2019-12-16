@@ -47,7 +47,7 @@ class Home extends Component<HomeProps, HomeState> {
                                                 <a className="nav-link" href="index.html">Home</a>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link" href="features.html">features</a>
+                                                <Link to={'/Emperesa'} className="nav-link" href="features.html">em</Link>
                                             </li>
                                             <li className="nav-item">
                                                 <a className="nav-link" href="pricing.html">pricing</a>
@@ -86,7 +86,6 @@ class Home extends Component<HomeProps, HomeState> {
                         </div>
                     </div>
                 </header>
-
                 <section className="banner_part">
                     <div className="container">
                         <div className="row align-items-center justify-content-between">

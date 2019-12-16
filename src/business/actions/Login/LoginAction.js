@@ -6,6 +6,7 @@ import {
     LOGIN_ERROR
 
 } from '../../types';
+import {Tokens} from "../../../Storage/Tokens";
 
 
 
@@ -20,6 +21,7 @@ export const LoginAction = (username,password ) => {
             .then((response) => {
                 if (response.status === 200) {
                     console.log('LOGIN SUCCESS ', response.data);
+                    Tokens.setT(response.data.token);
                     const dataLogin = {
                         isOk: true,
                         body: response.data,
